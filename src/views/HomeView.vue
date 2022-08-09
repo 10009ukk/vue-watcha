@@ -1,18 +1,30 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <layout-slide 
+      :datas="romance"
+    />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import LayoutSlide from '@/components/layout/LayoutSlide.vue'
+
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    LayoutSlide
+  },
+  created() {
+    this.$store.dispatch('getGenres')
+  },
+  computed: {
+    romance() {
+      return this.$store.getters.getRomance
+    }
   }
 }
 </script>

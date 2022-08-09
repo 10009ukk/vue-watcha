@@ -1,10 +1,22 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <watcha-layout>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/contents">About</router-link>
+    </nav>
+    <router-view/>
+  </watcha-layout>
 </template>
+
+<script>
+import WatchaLayout from './layout/index.vue'
+
+export default {
+    components: {
+      WatchaLayout
+    }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -19,7 +31,6 @@ nav {
   padding: 30px;
 
   a {
-    font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {
